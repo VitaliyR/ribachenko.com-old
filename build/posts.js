@@ -201,7 +201,7 @@ module.exports.posts = async function posts() {
   const metaFiles = await glob(path.join(opts.posts, '**/meta.json'));
   const parsedMetas = (await Promise.all(metaFiles.map(parseMeta)))
     .filter(meta => meta)
-    .sort((a, b) => a.id < b.id);
+    .sort((a, b) => b.id - a.id);
 
   return fs.writeFile(path.join(opts.dist, 'posts.json'), JSON.stringify(parsedMetas));
 };
