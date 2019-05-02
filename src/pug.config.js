@@ -4,7 +4,7 @@ module.exports = (posts, places) => ({
     baseUrl: 'https://ribachenko.com/',
     settings: {
       title: 'Vitaliy Ribachenko',
-      description: 'Personal website with my throughts and ideas',
+      description: 'Personal website with my thoughts and ideas',
       logo: '/res/logo.jpg',
       icon: '/res/favicon/favicon-32x32.png'
     },
