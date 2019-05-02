@@ -16,7 +16,7 @@ So, you need to open your **VM options file**. You can do it from Help menu of P
 
 Here how it looks for me. Last two lines are what we need.
 
-```
+```bash
 -Xms512m
 -Xmx2048m
 -XX:MaxPermSize=350m
