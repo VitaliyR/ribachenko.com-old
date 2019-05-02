@@ -1,0 +1,42 @@
+:root {
+  --code-background: #fdfdfd;
+  --code-box-shadow: #dfdfdf;
+  --code-color: #000;
+  --code-operator-background: hsla(0, 0%, 100%, .5);
+}
+
+:root.scheme-dark {
+  --code-background: #2d2d2d;
+  --code-box-shadow: #505050;
+  --code-color: #ddd;
+  --code-operator-background: transparent;
+}
+
+.prism-show-language {
+  background-color: var(--color-mid-tint);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: .9rem;
+  border-radius: 0 0 0 5px;
+  padding: 0 .5rem;
+  z-index: 1;
+}
+
+code[class*=language-],
+pre[class*=language-] {
+  font-size: .8rem;
+}
+
+pre[class*="language-"] > code {
+  color: var(--code-color);
+  background-color: var(--code-background);
+  box-shadow: -1px 0 0 0 #358ccb, 0 0 0 1px var(--code-box-shadow);
+}
+
+.token.entity,
+.token.operator,
+.token.url,
+.token.variable {
+  background: var(--code-operator-background);
+}

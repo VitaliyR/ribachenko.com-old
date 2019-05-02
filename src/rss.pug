@@ -1,0 +1,30 @@
+doctype xml
+rss(xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0")
+  channel
+    title
+      | <![CDATA[#{settings.title}]]>
+    description
+      | <![CDATA[#{settings.description}]]>
+    link= baseUrl
+    if settings.icon
+      image
+        url= settings.icon
+        title= settings.title
+        link= baseUrl
+    generator= settings.title
+    lastBuildDate= new Date().toGMTString()
+    atom:link(href=baseUrl + "rss/" rel="self" type="application/rss+xml")
+    ttl 60
+    for post in posts
+      item
+        title
+          | <![CDATA[ #{post.title} ]]>
+        description
+          | <![CDATA[ #{post.description} ]]>
+        link= baseUrl + post.href.substr(1)
+        guid(isPermalink=false)= post.id
+        dc:creator
+          | <![CDATA[ #{settings.title} ]]>
+        pubDate= new Date(post.published_at).toGMTString()
+        content:encoded
+          | <![CDATA[ !{post.descriptionLong} ]]>

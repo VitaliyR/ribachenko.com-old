@@ -1,0 +1,25 @@
+:root {
+  --color-background: #fff;
+  --color-base: #868686;
+  --color-header: #5a5a5a;
+  --color-sub-header: #747373;
+  --color-mid-tint: #cfcfcf;
+  --color-tint: #ebf2f6;
+  --color-accent: #0092bf;
+  --color-accent-light: rgb(0, 146, 191, .5);
+}
+
+:root.scheme-dark {
+  --color-background: #2f2f31;
+  --color-base: #ddd;
+  --color-header: #fff;
+  --color-sub-header: #eee;
+  --color-tint: #676b6d;
+  --color-accent-light: rgb(0, 146, 191, .5);
+}
+
+@custom-media --mid-laptop (max-width: 1350px);
+@custom-media --laptop (max-width: 1210px);
+@custom-media --tablet (max-width: 1000px);
+@custom-media --big-phone (max-width: 700px);
+@custom-media --phone (max-width: 480px);

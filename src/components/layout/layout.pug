@@ -1,0 +1,11 @@
+extends ../base/head
+include ../image/image
+
+append styles
+  link(rel="stylesheet" href=relative("./layout.css", pug_debug_filename))
+
+block body
+  body.l-body-container
+    include ../header/header
+
+  block content

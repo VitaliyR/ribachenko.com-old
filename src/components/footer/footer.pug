@@ -1,0 +1,8 @@
+append links
+  link(rel="stylesheet" href=relative("./footer.css", pug_debug_filename))
+
+mixin footer(tag)
+  #{tag}.c-footer
+    p.c-footer__legal
+      | © 
+      = (new Date()).getFullYear()

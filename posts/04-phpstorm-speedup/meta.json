@@ -1,0 +1,19 @@
+{
+  "title": "PhpStorm speedup",
+  "slug": "phpstorm-speedup",
+  "image": "./res/featured.jpg",
+  "featured": false,
+  "published": true,
+  "published_at": "2016-09-29T10:11:00.000+00:00",
+  "updated_at": "2016-09-29T10:11:00.000+00:00",
+  "tags": [
+    {
+      "name": "IT",
+      "slug": "it"
+    },
+    {
+      "name": "Editors",
+      "slug": "editors"
+    }
+  ]
+}

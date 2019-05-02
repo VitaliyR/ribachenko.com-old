@@ -1,0 +1,14 @@
+append links
+  link(rel="stylesheet" href=relative("./section.css", pug_debug_filename))
+
+mixin section(title)
+  section.c-section
+    if title
+      +section-header(title)
+    block
+
+mixin section-header(title)
+  header.c-section__header
+    if title
+      h2.c-section__title.o-header= title
+    block

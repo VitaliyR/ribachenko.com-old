@@ -1,0 +1,55 @@
+.c-post {
+  position: relative;
+  margin: 0 auto;
+
+  &--no-image {
+    margin-top: 0;
+  }
+
+  &__header-container,
+  &__content {
+    padding: 0 2rem;
+
+    .o-image {
+      margin: 0 auto;
+      display: block;
+    }
+
+    @media (--tablet) {
+      padding: 0;
+    }
+  }
+
+  &__content {
+    line-height: 1.75rem;
+  }
+
+  &__title {
+    margin: 0 0 .5rem;
+    font-size: 2rem;
+  }
+
+  &__meta {
+    font-size: .8rem;
+    margin-bottom: 2rem;
+  }
+
+  &__footer {
+    border-top: 1px solid var(--color-tint);
+    position: relative;
+    margin: 2.5rem 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__read-next {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 2.5rem;
+
+    @media (--phone) {
+      flex-wrap: wrap;
+    }
+  }
+}

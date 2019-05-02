@@ -1,0 +1,9 @@
+mixin post-card(post, isNext = false, alignRight = false)
+  - const image = post.imageSmall || post.image;
+  a.c-post-card.o-link.o-link--plain(href=post.href class={'c-post-card--align-right': alignRight})
+    if image
+      +picture(image, "c-post-card__image", "Featured image of " + post.title, true)
+    span.c-post-card__direction #{isNext ? 'Next' : 'Previous'}
+    h3.c-post-card__title= post.title
+    p.c-post-card__description= post.description
+    time.c-post-card__date(datetime=post.published_at)= post.published_at_formatted

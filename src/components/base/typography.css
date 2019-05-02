@@ -1,0 +1,7 @@
+.o-header {
+  color: var(--color-header);
+}
+
+.o-sub-header {
+  color: var(--color-sub-header);
+}

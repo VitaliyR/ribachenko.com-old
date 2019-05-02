@@ -1,0 +1,32 @@
+extends ./components/layout/layout
+
+block content
+  main.l-main-container
+    include ./components/card/card
+    include ./components/section/section
+
+    +section
+      p.c-section__content
+        | Primarly full stack #[strong web] developer, but making more mobile applications nowadays.
+      p.c-section__content
+        | Traveling #[a.o-link(href="https://en.wikipedia.org/wiki/Forgotten_Realms") Forgotten Realms], adore driving everything has wheels,
+        | yet another #[a.o-link(href="https://www.apple.com/") Apple] fanboy.
+
+    +section("Projects")
+      ul.c-section__items
+        each project in projects
+          li.c-section__item
+            +card(project, "_blank")
+
+    +section
+      +section-header("Posts")
+        a.o-link.o-link--plain.o-link--ic(target="_blank" href="/rss")
+          svg.c-section__rss-image.o-svg-share(src="/res/icons/rss.svg")
+      ul.c-section__items
+        each post in posts
+          li.c-section__item
+            +card(post)
+  
+  include ./components/footer/footer
+  div.u-hidden.u-show-tablet
+    +footer("footer")

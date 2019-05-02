@@ -1,0 +1,33 @@
+.l-main-container,
+.l-post-container {
+  margin-left: 35%;
+  max-width: 1000px;
+
+  @media (--tablet) {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.l-main-container {
+  padding: 3em;
+
+  @media (--tablet) {
+    padding: 1.5em;
+  }
+}
+
+.l-post-container {
+  padding: 3em 2em 2em;
+
+  @media (--tablet) {
+    padding: 3em 2em;
+  }
+}
+
+.l-body-container {
+  @media (--tablet) {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

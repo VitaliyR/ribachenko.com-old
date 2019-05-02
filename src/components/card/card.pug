@@ -1,0 +1,17 @@
+append links
+  link(rel="stylesheet" href=relative("./card.css", pug_debug_filename))
+
+mixin card(data, target = "")
+  - const image = data.imageSmall || data.image;
+  a.c-card(href=data.href target=target class={"c-card--no-image": !image})
+    article
+      header
+        if image
+          div.c-card__image-container(data-text="View")
+            +picture(image, "c-card__image", "Image of " + data.title, !!data.imageSmall, data.imageDark)
+        div.c-card__title-column
+          h3.c-card__title.o-sub-header= data.title
+          if data.published_at_formatted
+            div.c-card__date-container
+              time.c-card__date(datetime=data.published_at)= data.published_at_formatted
+      p.c-card__description= data.description

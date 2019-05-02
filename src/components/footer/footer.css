@@ -1,0 +1,15 @@
+.c-footer {
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__legal {
+    text-align: right;
+    font-size: .6rem;
+    margin: .1rem 0;
+
+    @media (--tablet) {
+      text-align: center;
+      margin: 0 0 1rem;
+    }
+  }
+}

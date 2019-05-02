@@ -1,0 +1,21 @@
+append scripts
+  script(type="text/javascript" src=relative("./image.js", pug_debug_filename))
+
+mixin picture(src, className, alt, hasRetina, darkSrc)
+  - const name = basename(src);
+  picture(class=className)
+    - const webp = hasRetina ? `${name}@2x.webp 2x, ${name}.webp 1x` : name + '.webp';
+    source(srcset=webp type="image/webp")
+    if darkSrc
+      - const darkName = basename(darkSrc);
+      - const darkWebp = hasRetina ? `${darkName}@2x.webp 2x, ${darkName} 1x` : darkName + '.webp';
+      source(srcset=darkWebp type="image/webp" data-scheme-dark="true")
+      source(srcset=darkSrc data-scheme-dark="true")
+    if hasRetina
+      - const ext = extname(src)
+      source(srcset=name + "@2x" + ext + " 2x, " + src + " 1x")
+      if darkSrc
+        - const darkName = basename(darkSrc);
+        - const darkExt = extname(darkSrc)
+        source(srcset=darkName + "@2x" + darkExt + " 2x, " + darkName + " 1x" data-scheme-dark="true")
+    img(class=className src=src alt=alt itemprop="image")

@@ -1,0 +1,23 @@
+{
+  "title": "Creating dropdown menu like in Tweetbot",
+  "slug": "creating-dropdown-menu-like-in-tweetbot",
+  "image": "./res/featured.png",
+  "featured": false,
+  "published": true,
+  "published_at": "2017-02-16T06:00:00.000+00:00",
+  "updated_at": "2017-02-16T06:00:00.000+00:00",
+  "tags": [
+    {
+      "name": "Swift",
+      "slug": "swift"
+    },
+    {
+      "name": "Programming",
+      "slug": "programming"
+    },
+    {
+      "name": "iOS",
+      "slug": "ios"
+    }
+  ]
+}

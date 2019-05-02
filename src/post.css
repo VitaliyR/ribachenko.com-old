@@ -1,0 +1,4 @@
+@import '../node_modules/prismjs/themes/prism-coy.css';
+@import './components/post/post.css';
+@import './components/post-card/post-card.css';
+@import './components/prism/prism.css';
