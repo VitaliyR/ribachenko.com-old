@@ -1,7 +1,4 @@
-const posts = require('../dist/posts.json');
-const places = require('../places.json');
-
-module.exports = {
+module.exports = (posts, places) => ({
   locals: {
     lang: 'en',
     baseUrl: 'https://ribachenko.com/',
@@ -9,7 +6,7 @@ module.exports = {
       title: 'Vitaliy Ribachenko',
       description: 'Throughts...',
       logo: '/res/logo.jpg',
-      icon: ''
+      icon: '/res/favicon/favicon-32x32.png'
     },
     socials: [
       {
@@ -56,4 +53,4 @@ module.exports = {
     posts,
     places
   }
-};
+});

@@ -6,7 +6,9 @@ const posthtml = require('gulp-posthtml');
 const rename = require('gulp-rename');
 const mergeStream = require('merge-stream');
 const terser = require('terser');
+const fs = require('fs-fs');
 const file = require('./lib/file');
+const pugConfigFactory = require('../src/pug.config');
 
 let opts = {};
 let processedTemplates = [];
@@ -166,11 +168,16 @@ const postTemplate = post => file.vinyl(
   `${opts.src}/post.pug`
 );
 
-const reloadPugConfig = () => {
-  const pugConfigPath = require.resolve(path.join(process.cwd(), opts.pugConfig));
-  delete require.cache[pugConfigPath];
-  // eslint-disable-next-line global-require, import/no-dynamic-require
-  const pugConfig = require(pugConfigPath);
+const reloadPugConfig = async () => {
+  let posts = [];
+  let places = [];
+
+  try {
+    posts = JSON.parse(await fs.readFile(path.join(opts.dist, 'posts.json'), 'utf-8'));
+    places = JSON.parse(await fs.readFile(opts.placesJson, 'utf-8'));
+  } catch (e) {} // eslint-disable-line
+
+  const pugConfig = pugConfigFactory(posts, places);
 
   pugConfig.locals.relative = (src, templatePath) => resolve(src, path.dirname(templatePath));
   pugConfig.locals.basename = src => path.dirname(src) + path.sep + path.basename(src, path.extname(src));
@@ -187,7 +194,7 @@ module.exports.html = async function html() {
   opts.templateResources = {};
   processedTemplates = [];
 
-  const pugConfig = reloadPugConfig();
+  const pugConfig = await reloadPugConfig();
 
   const posts = pugConfig.locals.posts.map(postTemplate);
 
@@ -219,13 +226,15 @@ module.exports.html = async function html() {
     .on('end', res));
 };
 
-module.exports.rss = function rss() {
-  return gulp.src(opts.rss, { base: opts.src })
+module.exports.rss = async function rss() {
+  const pugConfig = await reloadPugConfig();
+  return new Promise((res, rej) => gulp.src(opts.rss, { base: opts.src })
     .pipe(pug({
-      ...reloadPugConfig(),
+      ...pugConfig,
       basedir: opts.src
     }))
-    .on('error', console.error)
+    .on('error', rej)
     .pipe(rename('rss'))
-    .pipe(gulp.dest(opts.dist));
+    .pipe(gulp.dest(opts.dist))
+    .on('finish', res));
 };

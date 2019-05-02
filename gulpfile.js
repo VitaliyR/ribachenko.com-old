@@ -11,6 +11,7 @@ const options = {
   html: ['./src/index.pug'],
   rss: './src/rss.pug',
   posts: './posts',
+  placesJson: './places.json',
   res: ['./src/res/**/*', '!./src/res/icons/**/*'],
   templateResources: {}
 };
