@@ -12,7 +12,7 @@ disable something else etc. But, hold on, I love it because it has it all. So I'
 
 So, you need to open your **VM options file**. You can do it from Help menu of PhpStorm.
 
-![](./res/1.png)
+![Screenshot of OS X Help menu for PhpStorm](./res/1.png)
 
 Here how it looks for me. Last two lines are what we need.
 

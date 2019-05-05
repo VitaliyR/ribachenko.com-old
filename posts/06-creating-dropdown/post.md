@@ -4,7 +4,7 @@ really shitty, as for me. So, as usually, I decided to create yet another own bi
 
 What we want to achieve: 
 
-![](./res/1.gif)
+![GIF animation with the end result what we want to achieve](./res/1.gif)
 
 So, as you can see from GIF above, this is the menu we want to achieve:
 
@@ -24,13 +24,13 @@ make it an *Initial View Controller*. Give a nice class name for this table view
 Create a cell inside table view, give it a reuse identifier *(e.g. **cell**)* and a custom class *(let's name it TableViewCell)*. Set 
 cell's selection to **None**.
 
-![](./res/2.png)
+![Screenshot of XCode storyboard pane for UITableViewCell](./res/2.png)
 
 Now let's work with a cell for a while. Create 2 views inside a cell, where the first view will fit usual content your cell should have, 
 like, in our case - `UILabel`, while another view will act as dropdown and contains some buttons - *Share* and *Remove*. Check 
 `Clip To Bounds` for the second view, so when it will fold, buttons inside it will be cutted correctly.
 
-![](./res/3.png)
+![Screenshot of XCode storyboard with UITableView](./res/3.png)
 
 It's time for constraints! For the **first** view, we need to add *left, top and right* constraints with constant 0 to Superview. Also,
 set *bottom* constraint with constant 0, which pointed to the second view. As for the **second** view, we need do an exact same thing, 

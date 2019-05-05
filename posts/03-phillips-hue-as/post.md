@@ -9,12 +9,12 @@ not worth its price, but nevertheless, I decided to test them. So, I found a lot
 There are 3 bulbs and a hub inside the box, which doesn't have a built-in wifi, you need to connect it to your router via cable, which is ridiculous 
 in 2016 as for me. The good part of it, that the hub is actually very light, so I put it to the wall with 3M scotch tape.
 
-![](./res/1.jpg)
+![Phillips Hue Hub placed on the wall and turned on](./res/1.jpg)
 
 Thankfully, I knew that the bulbs would come with another socket than my luster has, so I ordered adapters beforehand on aliexpress. Weird 
 thing - there is an info on the box saying the bulbs are designed for an E26 socket, while they suited E27.
 
-![](./res/2.jpg)
+![Phillips Hue RGB light bulb](./res/2.jpg)
 
 I have used them few days and, I think, my feedback right now is still very subjective. Yes, they're cool, a lot of colors, adjustable brightness 
 level etc. **The smart alarm works!** I've started to wake up by the light, not that annoying sound of the alarm. I'm not saying that it that help 
