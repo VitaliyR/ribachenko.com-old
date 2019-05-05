@@ -94,19 +94,23 @@ const processPostHtml = (tree) => {
   tree.match({ tag: 'pre', content: [{ tag: 'code' }] }, (pre) => {
     const codeBlock = pre.content[0];
     const langClass = codeBlock.attrs ? codeBlock.attrs.class : null;
-    const lang = langClass ? langClass.trim().replace('language-', '') : 'js';
-    const langReadable = languages[lang.toLowerCase()] || (lang[0].toUpperCase() + lang.slice(1));
+    const lang = langClass ? langClass.trim().replace('language-', '') : '';
+    const langReadable = languages[lang.toLowerCase()] || (lang ? (lang[0].toUpperCase() + lang.slice(1)) : '');
 
-    pre.attrs = pre.attrs || {};
-    pre.attrs.class = langClass;
-
-    pre.content.unshift({
-      tag: 'span',
-      attrs: {
-        class: 'prism-show-language'
-      },
-      content: [langReadable]
+    [pre, codeBlock].forEach((node) => {
+      node.attrs = node.attrs || {};
+      node.attrs.class = langClass || 'language-js';
     });
+
+    if (langReadable) {
+      pre.content.unshift({
+        tag: 'span',
+        attrs: {
+          class: 'prism-show-language'
+        },
+        content: [langReadable]
+      });
+    }
 
     return pre;
   });

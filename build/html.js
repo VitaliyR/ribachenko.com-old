@@ -1,17 +1,28 @@
 const path = require('path');
 const gulp = require('gulp');
 const pug = require('gulp-pug');
-const svg = require('gulp-embed-svg');
+const embedSvg = require('gulp-embed-svg');
 const posthtml = require('gulp-posthtml');
+const posthtmlRender = require('posthtml-render');
 const rename = require('gulp-rename');
 const mergeStream = require('merge-stream');
 const terser = require('terser');
 const fs = require('fs-fs');
+const Svgo = require('svgo');
 const file = require('./lib/file');
 const pugConfigFactory = require('../src/pug.config');
 
 let opts = {};
 let processedTemplates = [];
+
+const spriteClass = 'o-svg-sprite';
+
+const svgo = new Svgo({
+  plugins: [
+    { removeUselessDefs: false },
+    { cleanupIDs: false }
+  ]
+});
 
 const resolve = (src, base) => {
   if (!src || src.startsWith('http')) {
@@ -41,7 +52,11 @@ const getSrc = (node) => {
 const cssTagTemplate = src => `
 var isSupportVariables = window.CSS && CSS.supports('color', 'var(--var)');
 var href = isSupportVariables ? '${src}' : '${src.replace('.css', '.old.css')}';
-document.write('<link rel="stylesheet" href="' + href + '"/>');
+var currentScript = document.scripts[document.scripts.length - 1];
+var styleNode = document.createElement('link');
+styleNode.setAttribute('rel', 'stylesheet');
+styleNode.setAttribute('href', href);
+currentScript.parentElement.append(styleNode);
 `;
 
 const getResourceName = (templateName, tag) => {
@@ -159,6 +174,19 @@ const processTemplate = templateName => (tree) => {
 
     return head;
   });
+
+  const jobs = [];
+
+  tree.match({ tag: 'svg', attrs: { class: spriteClass } }, (svg) => {
+    jobs.push(
+      svgo.optimize(posthtmlRender(svg.content)).then((result) => {
+        svg.content = result.data;
+      })
+    );
+    return svg;
+  });
+
+  return Promise.all(jobs).then(() => tree);
 };
 
 const postTemplate = post => file.vinyl(
@@ -214,10 +242,10 @@ module.exports.html = async function html() {
       basedir: opts.src
     }))
     .on('error', reject)
-    .pipe(svg({
+    .pipe(embedSvg({
       root: opts.src,
       createSpritesheet: true,
-      spritesheetClass: 'o-svg-sprite'
+      spritesheetClass: spriteClass
     }))
     .on('error', reject)
     .pipe(posthtml(posthtmlConfig))

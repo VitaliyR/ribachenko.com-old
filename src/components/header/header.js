@@ -1,7 +1,7 @@
 const util = require('../base/util');
 
 const headerSel = '.c-header';
-const currentLocSel = '.c-header__place';
+const currentLocSel = '.c-header__place-button';
 const mapToggledClass = 'c-header--show-map';
 const schemeSwitchSel = '.js-switch-scheme';
 
@@ -26,9 +26,11 @@ const bindHeader = () => {
   header = document.body.querySelector(headerSel);
 
   const currentLocationEl = header.querySelector(currentLocSel);
-  currentLocationEl.addEventListener('click', toggleHeaderMap.bind(null, true));
-
   const hideMapFn = toggleHeaderMap.bind(null, false);
+
+  currentLocationEl.addEventListener('click', toggleHeaderMap.bind(null, true));
+  currentLocationEl.addEventListener('blur', hideMapFn);
+
   header.addEventListener('mouseleave', hideMapFn);
   document.addEventListener('scroll', hideMapFn);
 

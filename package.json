@@ -28,6 +28,7 @@
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.4",
     "browserify": "^16.2.3",
+    "core-js": "^2.6.5",
     "cssnano": "^4.1.10",
     "custom-event-polyfill": "^1.0.7",
     "dayjs": "^1.8.12",
@@ -59,16 +60,17 @@
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.2",
     "posthtml": "^0.11.3",
+    "posthtml-render": "^1.1.4",
     "prismjs": "^1.16.0",
     "rmfr": "^2.0.0",
     "stream": "0.0.2",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
+    "svgo": "^1.2.2",
     "terser": "^3.17.0",
     "vinyl": "^2.2.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "core-js": "^2.6.5"
+    "vinyl-source-stream": "^2.0.0"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",

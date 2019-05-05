@@ -5,9 +5,9 @@ append links
   link(rel="stylesheet" href=relative("./share.css", pug_debug_filename))
 
 section.c-share
-  a.c-share__link.o-link.o-link--plain.js-share-social(target="_blank" href="https://twitter.com/share?text=" + shareText + "&url=" + postUrl)
+  a.c-share__link.o-link.o-link--plain.js-share-social(target="_blank" href="https://twitter.com/share?text=" + shareText + "&url=" + postUrl rel="noreferrer noopener" aria-label="Share this article via Twitter")
     svg.c-share__image(src="/res/icons/twitter.svg")
-  a.c-share__link.o-link.o-link--plain.js-share-social(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" + postUrl)
+  a.c-share__link.o-link.o-link--plain.js-share-social(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" + postUrl rel="noreferrer noopener" aria-label="Share this article via Facebook")
     svg.c-share__image(src="/res/icons/facebook.svg")
   button.c-share__link.c-share__link-share.o-link.o-link--plain.js-share-button.u-hidden
     svg.c-share__image(src="/res/icons/share.svg")

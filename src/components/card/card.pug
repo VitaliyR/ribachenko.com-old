@@ -3,7 +3,7 @@ append links
 
 mixin card(data, target = "")
   - const image = data.imageSmall || data.image;
-  a.c-card(href=data.href target=target class={"c-card--no-image": !image})
+  a.c-card(href=data.href target=target rel=(target ? 'noreferrer noopener' : '') class={"c-card--no-image": !image})
     article
       header
         if image

@@ -15,17 +15,18 @@ header.c-header
 
   div.c-header__middle
     div.c-header__place
-      svg.c-header__place-icon(src="/res/icons/pin.svg")
-      span.c-header__place-text.o-link.o-link--plain= places.current.name
+      button.o-button.c-header__place-button.o-link.o-link--plain(type="button")
+        svg.c-header__place-icon(src="/res/icons/pin.svg")
+        span= places.current.name
 
   div.c-header__bottom
     ul.c-header__links
-      each social in socials
+      each social, index in socials
         li.c-header__links-item
-          a.o-link.o-link--plain.o-link--ic(href=social.url target="_blank")
+          a.o-link.o-link--plain.o-link--ic(href=social.url target="_blank" aria-label="Link to my " + social.name rel="noreferrer noopener")
             svg.c-header__links-icon(src="/res/icons/" + social.name.toLowerCase() + ".svg")
     include ../footer/footer
     div.u-hide-tablet
       +footer("div")
-    button.c-header__day-night.o-switch.o-switch--day-night.o-link.o-link--plain.o-link--ic.js-switch-scheme(role="switch" aria-checked="true")
+    button.o-button.c-header__day-night.o-switch.o-switch--day-night.o-link.o-link--plain.o-link--ic.js-switch-scheme(role="switch" aria-checked="true" aria-label="Switch day/night mode")
       svg.o-switch__icon(src="/res/icons/daynight.svg") 

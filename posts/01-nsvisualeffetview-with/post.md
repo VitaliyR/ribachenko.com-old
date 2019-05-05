@@ -6,7 +6,7 @@ change background blur level - it's hardcoded somewhere deeply inside SDK and th
 
 A weird thing that I, as usually, tried to google for it, but I've found nothing. So, I decided to create own bicycle-solution:
 
-```swift line-numbers
+```swift
 class SemiTransparentView: NSView {
     
     var alphaLevel: Double = 0.12
