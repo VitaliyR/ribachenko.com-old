@@ -3,7 +3,7 @@ append scripts
 
 mixin picture(src, className, alt, hasRetina, darkSrc)
   - const name = basename(src);
-  picture(class=className)
+  picture
     - const webp = hasRetina ? `${name}@2x.webp 2x, ${name}.webp 1x` : name + '.webp';
     source(srcset=webp type="image/webp")
     if darkSrc

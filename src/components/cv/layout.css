@@ -1,0 +1,91 @@
+.l-cv-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+
+  @media screen and (--big-phone) {
+    padding: 1.5rem;
+  }
+
+  @media print {
+    padding: 0;
+    margin: 0 1.6cm;
+  }
+}
+
+.l-break-page {
+  break-before: page;
+
+  @media print {
+    padding-top: 1.6cm;
+  }
+}
+
+.l-cv-columns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  @media screen and (--big-phone) {
+    display: block;
+
+    &__header {
+      display: flex;
+      flex-flow: column-reverse;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+.l-cv-column-right {
+  min-width: 180px;
+  margin-left: 1.5rem;
+
+  @media screen and (--big-phone) {
+    min-width: none;
+    margin-left: 0;
+  }
+}
+
+.l-cv-section {
+  margin-top: 1.5rem;
+
+  &:last-child {
+    margin-top: 3rem;
+  }
+}
+
+@media print {
+  .l-cv-section.l-break-page {
+    margin-top: 0;
+  }
+}
+
+.l-cv-skills {
+  column-count: 2;
+}
+
+.l-cv-skill-item {
+  break-inside: avoid;
+}
+
+.l-buttons {
+  @media print {
+    display: none;
+  }
+
+  &--sidebar > .o-button {
+    display: block;
+    width: 100%;
+  }
+
+  &--bottom {
+    text-align: center;
+
+    > .o-button {
+      margin-right: 1rem;
+      min-width: 10rem;
+    }
+  }
+}

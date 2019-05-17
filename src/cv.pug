@@ -1,0 +1,211 @@
+doctype html
+html(lang=lang dir="ltr")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="description" content="Vitaliy Ribachenko CV")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes")
+    meta(name="referrer" content="no-referrer-when-downgrade")
+    link(rel="canonical" href=baseUrl)
+    
+    link(rel="apple-touch-icon" sizes="180x180" href="/res/favicon/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="/res/favicon/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="/res/favicon/favicon-16x16.png")
+    link(rel="manifest" href="/res/favicon/site.webmanifest")
+    
+    meta(name="og:site_name" content=settings.title)
+    meta(name="og:type" content="website")
+    meta(name="og:title" content="Vitaliy Ribachenko CV")
+    meta(name="og:url" content=baseUrl + "cv")
+    meta(name="og:image" content=settings.logo)
+
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:title" content="Vitaliy Ribachenko CV")
+    meta(name="twitter:url" content=baseUrl + "cv")
+    meta(name="twitter:image" content=settings.logo)
+    meta(name="twitter:site" content="@Sa1en")
+
+    script(type="application/ld+json")
+      |{
+      |  "@context": "https://schema.org",
+      |  "@type": "WebSite",
+      |  "author": {
+      |      "@type": "Person",
+      |      "name": "#{settings.title}",
+      |      "url": "#{baseUrl}",
+      |      "logo": "#{settings.logo}"
+      |  },
+      |  "url": "#{baseUrl}cv",
+      |  "image": "#{settings.logo}",
+      |  "mainEntityOfPage": {
+      |      "@type": "WebPage",
+      |      "@id": "#{baseUrl}"
+      |  },
+      |  "description": "Vitaliy Ribachenko CV"
+      
+    title Vitaliy Ribachenko CV
+    style.
+      html { display: none; }
+    link(rel="prefetch" href=(baseUrl + "cv.pdf"))
+    link(rel="stylesheet" href=relative("./components/base/base.css", pug_debug_filename))
+    link(rel="stylesheet" href=relative("./components/cv/cv.css", pug_debug_filename))
+    script(type="text/javascript")
+      include ./components/base/init.js
+    script(type="text/javascript" src=relative("./components/cv/cv.js", pug_debug_filename))
+    block styles
+    block scripts
+      
+  body
+    include ./components/image/image
+
+    mixin buttons()
+      a.o-button.o-link.o-link--plain.js-print-button(type="button")
+        svg.o-button__icon(src="/res/icons/print.svg")
+        span.o-button__title Print
+      a.o-button(href=(baseUrl + "cv.pdf") download)
+        svg.o-button__icon(src="/res/icons/download.svg")
+        span.o-button__title Download
+
+    mixin experience(company, role, location, date)
+      article.c-cv-experience
+        header.c-cv-experience__header
+          div
+            span.c-cv-experience__header-title
+              if company
+                =company
+              if company && role
+                =" — " 
+              if role
+                =role
+            span.c-cv-experience__header-location= " — " + location
+          div.c-cv-experience__header-date= date
+        div.c-cv-experience__content
+          block
+
+    mixin skill(name, skills)
+      article.c-cv-skill
+        header.c-cv-skill__header= name
+        ul.o-list.c-cv-skill__skills
+          for skill in skills
+            li.c-cv-skill__item= skill
+    div.l-cv-container
+      header.l-cv-columns.l-cv-columns__header.l-break-page.c-cv-header
+        div
+          h1.c-cv-header__title Vitaliy Ribachenko
+          h2.c-cv-header__subtitle Full Stack Developer
+          p.c-cv-header__description
+            | Male, #{new Date(Date.now() - settings.birthday).getFullYear() - 1970} years #[br]
+            | #{new Date(Date.now() - settings.careerStartDate).getFullYear() - 1970} years experience
+        div
+          a.c-cv-header__avatar-container(href=settings.logo target="_blank")
+            +picture(settings.logo, "c-cv-header__avatar", "Image of Vitaliy Ribachenko")
+      main
+        section.l-cv-columns.l-cv-section
+          div
+            p
+              | I'm an experienced full stack web developer and, in addition, developing iOS and Android applications.
+              | I have a solid understanding of algorithms and data structures and an experience in building scalable low-latency systems from scratch.
+            p 
+              | Well motivated, always opened for something new. Attended to various conferences in Ukraine, had experience to be speaker on few of them.#[br]
+              | Co-founder of BeerJS Vinnitsya community, organizing meetups. Contributing and maintaining open source libraries.
+            p
+              | Founder and developer of #[a.o-link.o-link--print-url(href="http://sprut.mobi") Sprut].
+          div.l-cv-column-right
+            ul.o-list
+              each contact in contacts
+                li.c-cv-social-item
+                  a.o-link.o-link--plain.o-link--ic(href=contact.url target=(contact.url.startsWith('http') ? "_blank" : "") rel="noreferrer noopener")
+                    svg.c-cv-social-item__icon(src="/res/icons/" + contact.name.toLowerCase() + ".svg")
+                    span= contact.text
+
+        section.l-cv-columns.l-cv-section
+          div
+            h3.o-cv-section-header Skills
+            -
+              const skills = [
+                {name: 'HTML', skills: ['Semantic', 'Accessible layout', 'Web standards', 'Template processors']},
+                {name: 'CSS', skills: ['CSS3', 'Feature detection', 'Pre and post processors', 'BEM', 'Adaptive layouts']},
+                {name: 'Modern web graphics', skills: ['SVG', 'WebP']},
+                {name: 'JS', skills: ['ES201x', 'Web APIs', 'SPA', 'PWA', 'Architecture of web app', 'Marionette', 'React', 'Redux', 'MobX', 'Rx', 'Vue', 'Svetle', 'Browser support', 'Debugging', 'Profiling', 'Performance optimization', 'Security', 'Unit testing', 'TDD', 'NodeJS']},
+                {name: 'Build', skills: ['Grunt', 'Gulp', 'Webpack', 'Brunch', 'Parcel', 'Rollup', 'NPM']},
+                {name: 'DevOps', skills: ['Git', 'Unix', 'Bash', 'Jenkins', 'Travis', 'Nginx']},
+                {name: 'Databases', skills: ['MySQL', 'CouchDB', 'MongoDB', 'Redis']},
+                {name: 'iOS', skills: ['Swift', 'Objective C', 'Cocoapods', 'RxSwift', 'Realm', 'Core Data', 'App Store release', 'Crashlytics']},
+                {name: 'Android', skills: ['Java', 'Gradle', 'Proguard', 'RxJava', 'Realm', 'Play Market release', 'Crashlytics']},
+              ];
+            ul.o-list.l-cv-skills
+              each skill in skills
+                li.l-cv-skill-item
+                  +skill(skill.name, skill.skills)
+                
+
+          div.l-cv-column-right
+            h3.o-cv-section-header Languages
+            ul.o-list
+              each language in languages
+                li
+                  +skill(language.name, [language.level])
+
+            div.l-buttons.l-buttons--sidebar
+              +buttons
+
+        section.l-cv-section.l-break-page
+          h3.o-cv-section-header Experience
+          ul.o-list
+            li
+              +experience("MyHeritage", "Senior Web Developer", "Lviv, Ukraine", "September 2018 - November 2018")
+                p
+                  | Development new family home page as single page application using React, Redux, GraphQL. Continuous integration with 
+                  | every hour releases to production, writing unit tests covering code for new application.
+            li
+              +experience("Sprut.mobi", "Founder & Developer", "Vinnitsya, Ukraine", "May 2017 - Present")
+                p
+                  | Started from creating small iOS application for ordering taxi in my local city, grown up to big project with 
+                  | thousands of active users, spreading to other cities and constantly increasing app features.
+            li
+              +experience("Clio Online (Ciklum)", "Senior Web Developer", "Vinnitsya, Ukraine", "June 2015 - August 2018")
+                p
+                  | Development and supporting biggest in Denmark learning management system, which contains a lot of subprojects for various 
+                  | types of schools. Also, launched in Sweden and there are plans to grow for other countries. Two offices, in Copenhagen and 
+                  | in Vinnitsya, a lot of remote work and communication. My main goal in the team to be an expert guy in frontend, making decisions 
+                  | in choosing technologies, bootstrapping new projects and solve issues in old ones.
+            li
+              +experience("EPAM", "Senior Web Developer", "Vinnitsya, Ukraine", "August 2014 - June 2015")
+                p
+                  | Development of modules and components for project running under Adobe Experience Manager CMS (ver. 6) for world-known company. 
+                  | Creating various components to be used on the page in the browser or/and in the email clients.
+            li
+              +experience("Win Interactive (ex. Orneon)", "Web Developer", "Vinnitsya, Ukraine", "August 2011 - August 2014")
+                ul
+                  li
+                    | Development of browser-based real-money HTML5 blackjack game. Framework adaptation from platformer-games to casual-games.
+                  li
+                    | Development of browser MMORPG. Creating web services which handle authentication, deployment and testing. 
+                    | Development of mobile version of the game. Creating map tiles generator.
+            li
+              +experience("Freelance", "Web Developer", "Vinnitsya, Ukraine", "November 2010 - August 2011")
+                p
+                  | Working as a freelancer on different projects. Worked both on frontend and backend parts.
+
+        section.l-cv-section.l-break-page
+          h3.o-cv-section-header Education
+          ul.o-list
+            li
+              +experience("Vinnitsya National Technical University", null, "BSc and MSc Degree", "2012 - 2016")
+                p
+                  | Faculty of Computer Systems and Networks, Systems engineer in computer systems and networks.
+
+        section.l-cv-section
+          h3.o-cv-section-header Etc
+          p.
+            Programming is big part of me, that’s why it is my work and, in the same time, my hobby. Self-learner, started from the scratch
+            and got everything by my own.
+            Love to travel, when I’m seeing the world it inspires me. Usually read technical books, but also love to dive into fantasies,
+            like the world of Middle-earth or Forgotten realms or Tamriel - but the last comes from the The Elder Scrolls games.
+            Like to drive anything has wheels - bicycles, cars, small planes.
+
+        section.l-cv-section
+          div.l-buttons.l-buttons--bottom
+            +buttons
+
+  include ./components/scheme/scheme

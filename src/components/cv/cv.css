@@ -1,0 +1,68 @@
+@import './layout.css';
+@import './components.css';
+
+:root {
+  --color-base: #000;
+}
+
+@page {
+  margin: 0;
+}
+
+@media print {
+  #__bs_notify__ {
+    display: none !important;
+  }
+}
+
+html {
+  font-size: 16px;
+
+  @media print {
+    font-size: 14px;
+  }
+}
+
+.o-button {
+  background: var(--color-accent);
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  text-align: center;
+  will-change: background;
+  transition: background .2s ease-in-out;
+
+  &__icon {
+    fill: #fff;
+    stroke: transparent;
+  }
+
+  &:hover {
+    background: var(--color-accent-light);
+
+    .o-button__title {
+      color: #fff;
+    }
+  }
+}
+
+.o-cv-section-header {
+  color: var(--color-accent);
+  font-size: 1.6rem;
+  margin-top: 0;
+}
+
+.o-switch--day-night {
+  background: none;
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  margin: 0;
+  padding: 0;
+  opacity: .7;
+
+  &:hover {
+    background: transparent;
+  }
+}

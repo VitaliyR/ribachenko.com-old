@@ -10,12 +10,14 @@
 }
 
 :root.scheme-dark {
-  --color-background: #2f2f31;
-  --color-base: #ddd;
-  --color-header: #fff;
-  --color-sub-header: #eee;
-  --color-tint: #676b6d;
-  --color-accent-light: rgb(0, 146, 191, .5);
+  @media screen {
+    --color-background: #2f2f31;
+    --color-base: #ddd;
+    --color-header: #fff;
+    --color-sub-header: #eee;
+    --color-tint: #676b6d;
+    --color-accent-light: rgb(0, 146, 191, .5);
+  }
 }
 
 @custom-media --mid-laptop (max-width: 1350px);

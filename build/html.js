@@ -56,7 +56,7 @@ var currentScript = document.scripts[document.scripts.length - 1];
 var styleNode = document.createElement('link');
 styleNode.setAttribute('rel', 'stylesheet');
 styleNode.setAttribute('href', href);
-currentScript.parentElement.append(styleNode);
+currentScript.parentElement.appendChild(styleNode);
 `;
 
 const getResourceName = (templateName, tag) => {

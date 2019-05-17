@@ -1,0 +1,8 @@
+.o-switch--day-night {
+  width: 24px;
+  height: 24px;
+
+  @media print {
+    display: none;
+  }
+}

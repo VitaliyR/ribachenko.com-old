@@ -1,0 +1,116 @@
+.c-cv-header {
+  border-bottom: 3px solid var(--color-accent);
+
+  &__title,
+  &__subtitle {
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+  }
+
+  &__avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    border: 5px solid var(--color-accent);
+    display: block;
+
+    @media print {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+    }
+  }
+}
+
+.c-cv-social-item {
+  margin-bottom: .5rem;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: .5rem;
+    vertical-align: middle;
+    stroke-width: 0;
+  }
+}
+
+.c-cv-skill {
+  margin-bottom: 1.5rem;
+
+  &__header {
+    font-weight: 600;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+  }
+
+  &__skills {
+    font-size: .85rem;
+    color: var(--color-sub-header);
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: .5rem;
+
+    &::after {
+      display: inline-block;
+      content: '•';
+      margin-left: .5rem;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+.c-cv-experience {
+  margin-bottom: 3rem;
+
+  @media screen and (--big-phone) {
+    margin-bottom: 2rem;
+  }
+
+  @media print {
+    margin-bottom: 2rem;
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__header-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  &__header-location {
+    font-size: 1.1rem;
+    color: var(--color-sub-header);
+    white-space: nowrap;
+  }
+
+  &__header-date {
+    color: var(--color-sub-header);
+    font-size: .9rem;
+    margin-top: .5rem;
+  }
+
+  &__content {
+    @media print {
+      > * {
+        margin: 0;
+      }
+    }
+  }
+}

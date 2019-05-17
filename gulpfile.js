@@ -4,16 +4,23 @@ const path = require('path');
 require('dotenv').config();
 
 const options = {
+  prodUrl: 'https://ribachenko.com/',
   dist: './dist2',
   publicDist: './dist',
   src: './src',
   pugConfig: './src/pug.config.js',
-  html: ['./src/index.pug'],
+  html: ['./src/index.pug', './src/cv.pug'],
   rss: './src/rss.pug',
   posts: './posts',
   placesJson: './places.json',
   res: ['./src/res/**/*', '!./src/res/icons/**/*'],
-  templateResources: {}
+  templateResources: {},
+  pdf: [
+    {
+      url: 'http://localhost:3001/cv.html',
+      file: 'cv.pdf'
+    }
+  ]
 };
 
 const tasks = require('./build/')(options);
@@ -37,5 +44,6 @@ const watch = () => {
   gulp.watch(options.res, gulp.series(tasks.copyResources, tasks.serverReload));
 };
 
-module.exports.default = buildAll;
+module.exports.default = gulp.series(buildAll, tasks.pdf);
 module.exports.watch = gulp.series(buildAll, tasks.serverServe, watch);
+module.exports.pdf = tasks.pdf;
