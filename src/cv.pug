@@ -59,10 +59,10 @@ html(lang=lang dir="ltr")
     include ./components/image/image
 
     mixin buttons()
-      a.o-button.o-link.o-link--plain.js-print-button(type="button")
+      a.o-button.o-link.o-link--plain.js-print-button(type="button" tabindex=0)
         svg.o-button__icon(src="/res/icons/print.svg")
         span.o-button__title Print
-      a.o-button(href=(baseUrl + "cv.pdf") download)
+      a.o-button(href=(baseUrl + "cv.pdf") download="Vitaliy Ribachenko CV.pdf")
         svg.o-button__icon(src="/res/icons/download.svg")
         span.o-button__title Download
 
@@ -114,7 +114,7 @@ html(lang=lang dir="ltr")
             ul.o-list
               each contact in contacts
                 li.c-cv-social-item
-                  a.o-link.o-link--plain.o-link--ic(href=contact.url target=(contact.url.startsWith('http') ? "_blank" : "") rel="noreferrer noopener")
+                  a.o-link.o-link--plain.o-link--ic.c-cv-social-item__link(href=contact.url target=(contact.url.startsWith('http') ? "_blank" : "") rel="noreferrer noopener")
                     svg.c-cv-social-item__icon(src="/res/icons/" + contact.name.toLowerCase() + ".svg")
                     span= contact.text
 

@@ -35,6 +35,10 @@
 .c-cv-social-item {
   margin-bottom: .5rem;
 
+  &__link {
+    display: block;
+  }
+
   &__icon {
     width: 20px;
     height: 20px;

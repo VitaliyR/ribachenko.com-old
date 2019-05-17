@@ -8,7 +8,10 @@ module.exports = (options) => {
 };
 
 module.exports.pdf = async function pdf() {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--font-render-hinting=medium']
+  });
   const page = await browser.newPage();
 
   const jobs = opts.pdf.map(async (task) => {

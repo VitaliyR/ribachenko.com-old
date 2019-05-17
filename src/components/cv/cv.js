@@ -5,6 +5,7 @@ let printIframe;
 
 const printPdf = () => {
   try {
+    printIframe.focus();
     printIframe.contentWindow.print();
   } catch (e) {
     window.open(pdfLink, '_blank');
