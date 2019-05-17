@@ -1,0 +1,62 @@
+doctype html
+html(lang=lang dir="ltr")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="description" content="Vitaliy Ribachenko CV")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes")
+    meta(name="referrer" content="no-referrer-when-downgrade")
+    link(rel="canonical" href=baseUrl)
+    
+    link(rel="apple-touch-icon" sizes="180x180" href="/res/favicon/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="/res/favicon/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="/res/favicon/favicon-16x16.png")
+    link(rel="manifest" href="/res/favicon/site.webmanifest")
+    
+    meta(name="og:site_name" content=settings.title)
+    meta(name="og:type" content="website")
+    meta(name="og:title" content="Vitaliy Ribachenko CV")
+    meta(name="og:url" content=baseUrl + "cv")
+    meta(name="og:image" content=settings.logo)
+
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:title" content="Vitaliy Ribachenko CV")
+    meta(name="twitter:url" content=baseUrl + "cv")
+    meta(name="twitter:image" content=settings.logo)
+    meta(name="twitter:site" content="@Sa1en")
+
+    script(type="application/ld+json")
+      |{
+      |  "@context": "https://schema.org",
+      |  "@type": "WebSite",
+      |  "author": {
+      |      "@type": "Person",
+      |      "name": "#{settings.title}",
+      |      "url": "#{baseUrl}",
+      |      "logo": "#{settings.logo}"
+      |  },
+      |  "url": "#{baseUrl}cv",
+      |  "image": "#{settings.logo}",
+      |  "mainEntityOfPage": {
+      |      "@type": "WebPage",
+      |      "@id": "#{baseUrl}"
+      |  },
+      |  "description": "Vitaliy Ribachenko CV"
+      
+    title Vitaliy Ribachenko CV
+    style.
+      html { display: none; }
+      
+    link(rel="prefetch" href=(baseUrl + "cv.pdf"))
+
+    link(rel="stylesheet" href=relative("../base/base.css", pug_debug_filename))
+    block styles
+    link(rel="stylesheet" href=relative("../cv/cv.css", pug_debug_filename))
+
+    script(type="text/javascript")
+      include ../base/init.js
+    script(type="text/javascript" src=relative("../cv/cv.js", pug_debug_filename))
+    block scripts
+      
+  body
+    block content

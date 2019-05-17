@@ -51,6 +51,10 @@ html {
   color: var(--color-accent);
   font-size: 1.6rem;
   margin-top: 0;
+
+  @media screen and (--big-phone) {
+    margin-top: 1.5rem;
+  }
 }
 
 .o-switch--day-night {
@@ -64,5 +68,18 @@ html {
 
   &:hover {
     background: transparent;
+  }
+
+  @media screen and (--big-phone) {
+    background: white;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    left: 0;
+    bottom: 0;
+
+    .scheme-dark & {
+      background: var(--color-accent-light);
+    }
   }
 }
