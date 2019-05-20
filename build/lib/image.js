@@ -26,7 +26,10 @@ module.exports.process = function process(stream) {
 
       f.scale = {
         format: 'webp',
-        maxWidth: Number.MAX_SAFE_INTEGER
+        maxWidth: Number.MAX_SAFE_INTEGER,
+        formatOptions: {
+          quality: 90
+        }
       };
 
       cb(null, [f]);
