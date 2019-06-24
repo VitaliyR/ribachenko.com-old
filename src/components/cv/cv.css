@@ -70,6 +70,10 @@ html {
     background: transparent;
   }
 
+  @media print {
+    display: none;
+  }
+
   @media screen and (--big-phone) {
     background: white;
     padding: 10px;
