@@ -9,8 +9,8 @@ mixin buttons()
     svg.o-button__icon(src="/res/icons/download.svg")
     span.o-button__title Download
 
-mixin experience(company, role, location, date)
-  article.c-cv-experience
+mixin experience(company, role, location, date, active = false)
+  article.c-cv-experience(class={"c-cv-experience--active": active})
     header.c-cv-experience__header
       div
         span.c-cv-experience__header-title
@@ -98,12 +98,17 @@ block content
         h3.o-cv-section-header Experience
         ul.o-list
           li
+            +experience("Stackbit", "Senior Fullstack Developer", "Remote", "June 2019 - Present", true)
+              p
+                | Development of the JAM integration platform between different static site generators and content managment systems, using themes which are
+                | developed either for specific site generator or in universal template format Unibit, which can be transpiled to any supported site generator.
+          li
             +experience("MyHeritage", "Senior Web Developer", "Lviv, Ukraine", "September 2018 - November 2018")
               p
                 | Development new family home page as single page application using React, Redux, GraphQL. Continuous integration with 
                 | every hour releases to production, writing unit tests covering code for new application.
           li
-            +experience("Sprut.mobi", "Founder & Developer", "Vinnitsya, Ukraine", "May 2017 - Present")
+            +experience("Sprut.mobi", "Founder & Developer", "Vinnitsya, Ukraine", "May 2017 - Present", true)
               p
                 | Started from creating small iOS application for ordering taxi in my local city, grown up to big project with 
                 | thousands of active users, spreading to other cities and constantly increasing app features.
@@ -136,7 +141,7 @@ block content
         h3.o-cv-section-header Education
         ul.o-list
           li
-            +experience("Vinnitsya National Technical University", null, "BSc and MSc Degree", "2012 - 2016")
+            +experience("Vinnitsya National Technical University", null, "BSc and MSc Degree", "2012 - 2016", true)
               p
                 | Faculty of Computer Systems and Networks, Systems engineer in computer systems and networks.
 

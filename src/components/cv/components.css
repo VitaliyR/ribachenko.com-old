@@ -80,6 +80,17 @@
 
 .c-cv-experience {
   margin-bottom: 3rem;
+  opacity: .6;
+  transition: opacity .5s ease-in-out;
+  will-change: opacity;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--active {
+    opacity: 1;
+  }
 
   @media screen and (--big-phone) {
     margin-bottom: 2rem;
@@ -87,6 +98,7 @@
 
   @media print {
     margin-bottom: 2rem;
+    opacity: 1;
   }
 
   &__header {
