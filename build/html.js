@@ -169,7 +169,9 @@ const processTemplate = templateName => (tree) => {
 
     Object.keys(resources).forEach((tagName) => {
       const resource = resources[tagName];
-      appendNode(head, tagName, resource, resources);
+      if (resource.files.length) {
+        appendNode(head, tagName, resource, resources);
+      }
     });
 
     return head;
