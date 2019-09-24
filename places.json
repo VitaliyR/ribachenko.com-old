@@ -31,7 +31,7 @@
       "lng": 19.944612,
       "city": "Krakow",
       "country": "Poland",
-      "dates" ["December 2013", "June 2018"]
+      "dates": ["December 2013", "June 2018"]
     },
     {
       "lat": 50.074526,
@@ -66,7 +66,7 @@
       "lng": 30.522691,
       "city": "Kyiv",
       "country": "Ukraine",
-      "dates" ["March 2012", "March 2015", "April 2015", "March 2018", "June 2018"]
+      "dates": ["March 2012", "March 2015", "April 2015", "March 2018", "June 2018"]
     },
     {
       "lat": 49.843609,
