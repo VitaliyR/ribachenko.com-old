@@ -43,9 +43,14 @@ module.exports = (posts, places) => ({
         text: 'vit@ribachenko.com'
       },
       {
+        name: 'home',
+        url: `https://www.google.com/maps/search/?api=1&query=${places.home.lat},${places.home.lng}`,
+        text: `${places.home.city}, ${places.home.country}`
+      },
+      {
         name: 'pin',
         url: `https://www.google.com/maps/search/?api=1&query=${places.current.lat},${places.current.lng}`,
-        text: places.current.name
+        text: `${places.current.city}, ${places.current.country}`
       },
       {
         name: 'phone',
@@ -73,12 +78,12 @@ module.exports = (posts, places) => ({
         text: 'salen.dev/linkedin'
       },
       {
-        name: 'home',
+        name: 'globe',
         url: 'https://ribachenko.com',
         text: 'ribachenko.com'
       },
       {
-        name: 'home',
+        name: 'globe',
         url: 'https://salen.dev',
         text: 'salen.dev'
       }
