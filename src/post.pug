@@ -3,6 +3,20 @@ extends ./components/layout/layout
 append styles
   link(rel="stylesheet" href=relative("./post.css", pug_debug_filename))
 
+block variables
+  - const pageType = 'Article';
+  - const pageTitle = post.title;
+  - const pageDescription = post.description.replace(/\n/igm, ' ');
+  - const pageUrl = baseUrl + post.href.substr(1).replace('.pug', '.html');
+  - const pageImage = post.feature_image;
+  -
+    const pageAdditionalData = `
+      "headline": "${post.title}",
+      "datePublished": "${post.published_at}",
+      "dateModified": "${post.updated_at}",
+      "keywords": "${post.tags.map(t => t.name).join(',')}"
+    `;
+
 block content
   main.l-post-container
     - const currentPostIndex = posts.indexOf(post);
@@ -10,15 +24,15 @@ block content
     - const previousPost = posts[currentPostIndex + 1];
     - const postUrl = baseUrl + post.href.substr(1).replace('.pug', '.html')
     - const shareText = encodeURIComponent(post.title)
-    
+
     section.c-post(class={"c-post--no-image": !post.image})
       header.c-post__header
         div.c-post__header-container
           h2.o-header.c-post__title= post.title
           section.c-post__meta
-            time(datetime=post.published_at)= post.published_at_formatted_long 
+            time(datetime=post.published_at)= post.published_at_formatted_long
             if post.tags && post.tags.length
-              |  on 
+              |  on
               = post.tags.map(t => t.name).join(', ')
         if post.image
           a(href=post.image target="_blank")
@@ -32,6 +46,6 @@ block content
           +post-card(nextPost, true)
         if previousPost
           +post-card(previousPost, false, nextPost)
-  
+
   div.u-hidden.u-show-tablet
     +footer("footer")

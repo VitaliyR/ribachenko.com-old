@@ -1,3 +1,4 @@
+block variables
 doctype html
 html(lang=lang)
   head
@@ -7,17 +8,18 @@ html(lang=lang)
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes")
     meta(name="referrer" content="no-referrer-when-downgrade")
     link(rel="canonical" href=baseUrl)
-    
+
     link(rel="apple-touch-icon" sizes="180x180" href="/res/favicon/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/res/favicon/favicon-32x32.png")
     link(rel="icon" type="image/png" sizes="16x16" href="/res/favicon/favicon-16x16.png")
     link(rel="manifest" href="/res/favicon/site.webmanifest")
 
-    - const title = post ? post.title + ' - ' + settings.title : settings.title
-    - const description = post ? post.description.replace(/\n/igm, ' ') : settings.description;
-    - const url = post ? baseUrl + post.href.substr(1).replace('.pug', '.html') : baseUrl;
-    - const image = (post && post.feature_image) ? post.feature_image : settings.logo;
-    
+    - const title = pageTitleCustom ? pageTitle : (pageTitle ? `${pageTitle} - ${settings.title}` : settings.title);
+    - const type = pageType || 'WebSite';
+    - const description = pageDescription || settings.description;
+    - const url = pageUrl || baseUrl;
+    - const image = pageImage || settings.logo;
+
     meta(name="og:site_name" content=settings.title)
     meta(name="og:type" content="website")
     meta(name="og:title" content=title)
@@ -35,7 +37,7 @@ html(lang=lang)
     script(type="application/ld+json")
       |{
       |  "@context": "https://schema.org",
-      |  "@type": "#{post ? 'Article' : 'WebSite'}",
+      |  "@type": "#{type}",
       |  "author": {
       |      "@type": "Person",
       |      "name": "#{settings.title}",
@@ -49,12 +51,9 @@ html(lang=lang)
       |      "@id": "#{baseUrl}"
       |  },
       |  "description": "#{description}"
-      if post
+      if pageAdditionalData
         | ,
-        | "headline": "#{post.title}",
-        | "datePublished": "#{post.published_at}",
-        | "dateModified": "#{post.updated_at}",
-        | "keywords": "#{post.tags.map(t => t.name).join(',')}"
+        | #{pageAdditionalData}
       |}
 
     title= title
@@ -66,4 +65,5 @@ html(lang=lang)
       include ./init.js
     block styles
     block scripts
+    block head
   block body

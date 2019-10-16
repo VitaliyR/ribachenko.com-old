@@ -9,7 +9,7 @@ const options = {
   publicDist: './dist',
   src: './src',
   pugConfig: './src/pug.config.js',
-  html: ['./src/index.pug', './src/cv.pug'],
+  html: ['./src/index.pug', './src/cv.pug', './src/wishlist.pug'],
   rss: './src/rss.pug',
   posts: './posts',
   placesJson: './places.json',

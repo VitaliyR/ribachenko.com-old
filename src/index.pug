@@ -1,5 +1,7 @@
 extends ./components/layout/layout
 
+block variables
+
 block content
   main.l-main-container
     include ./components/card/card
@@ -9,7 +11,7 @@ block content
       p.c-section__content
         | Primarly full stack #[strong web] developer, but making more mobile applications nowadays.#[br]
       p.c-section__content
-        | Traveling #[a.o-link(href="https://en.wikipedia.org/wiki/Forgotten_Realms" rel="noreferrer noopener") Forgotten Realms], adore driving everything 
+        | Traveling #[a.o-link(href="https://en.wikipedia.org/wiki/Forgotten_Realms" rel="noreferrer noopener") Forgotten Realms], adore driving everything
         | #[a.o-link(href="/res/plane.jpg" target="_blank") has wheels],
         | yet another #[a.o-link(href="https://www.apple.com/" rel="noreferrer noopener") Apple] fanboy.
       p.c-section__content
@@ -33,7 +35,7 @@ block content
         each post in posts
           li.c-section__item
             +card(post)
-  
+
   include ./components/footer/footer
   div.u-hidden.u-show-tablet
     +footer("footer")
