@@ -13,6 +13,13 @@
   },
   "visited": [
     {
+      "lat": "48.469068",
+      "lng": "35.050838",
+      "city": "Dnipro",
+      "country": "Ukraine",
+      "dates": ["October 2019"]
+    },
+    {
       "lat": 49.082271,
       "lng": 19.612493,
       "city": "Liptovskiy Mikulas",
