@@ -1,16 +1,16 @@
-extends ./components/base/head
-include ./components/image/image
+extends ../components/base/head
+include ../components/image/image
 
 block variables
   - const pageTitle = 'Vitaliy Ribachenko CV';
   - const pageTitleCustom = true;
-  - const pageUrl = baseUrl + '/cv';
+  - const pageUrl = baseUrl + 'cv';
 
 block styles
-  link(rel="stylesheet" href=relative("./components/cv/cv.css", pug_debug_filename))
+  link(rel="stylesheet" href=relative("./cv.css", pug_debug_filename))
 
 block scripts
-  script(type="text/javascript" src=relative("./components/cv/cv.js", pug_debug_filename))
+  script(type="text/javascript" src=relative("./cv.js", pug_debug_filename))
 
 block head
   link(rel="prefetch" href=(baseUrl + "cv.pdf"))
@@ -173,4 +173,4 @@ block body
           div.l-buttons.l-buttons--bottom
             +buttons
 
-    include ./components/scheme/scheme
+    include ../components/scheme/scheme

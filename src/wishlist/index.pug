@@ -1,0 +1,58 @@
+extends ../components/layout/layout
+
+block variables
+  - const pageType = 'Article';
+  - const pageTitle = 'Wishlist';
+  - const pageDescription = `If you want make surprise but don't know what to present me, here are some ideas to help you`;
+  - const pageUrl = baseUrl + 'wishlist';
+  -
+    const pageAdditionalData = `
+      "headline": "${pageTitle}"
+    `;
+
+append styles
+  link(rel="stylesheet" href=relative("./wishlist.css", pug_debug_filename))
+
+block content
+  include ../components/section/section
+
+  main.l-post-container
+    +section
+      p.c-section__content
+        | If you want make surprise but don't know what to present me, here are some ideas to help you 😊
+      p.c-section__content
+        | I'm run this list not only for an ideas for you, but also as an ideas for me - for the things which I
+        | want to buy, but not now. In worst case scenario you can just send me some beer in non-liquid state 💳
+      p.c-section__content
+
+    +section
+      h2.o-header Etc
+      ul.o-list--no-list
+        li.c-wishlist-item
+          | 💳
+          a.o-link(href="https://send.monobank.com.ua/2BgRGaJ9q?f" target="_blank") Send me money from any card
+        li.c-wishlist-item
+          | 🪑
+          a.o-link(href="https://www.3ona51.com/ru/gaming-chairs/dxracer-oh-is166-nw/index.html" target="_blank")
+            | DXRacer Chair
+
+      h2.o-header Car
+      ul.o-list--no-list
+        li.c-wishlist-item
+          | 📹
+          a.o-link(href="https://rozetka.com.ua/xiaomi_yi_smart_dash_gray/p11283724/" target="_blank") DVR
+
+      h2.o-header Tech
+      ul.o-list--no-list
+        li.c-wishlist-item
+          | 🖱
+          a.o-link(href="https://www.3ona51.com/ru/gaming-mouses/steelseries-sensei-ten-62527/index.html" target="_blank")
+            | Steelseries Ten
+        li.c-wishlist-item
+          | 🎧
+          a.o-link(href="https://www.3ona51.com/ru/gaming-headphones/steelseries-arctis-3-bluetooth-2019-edition-61509/index.html" target="_blank")
+            | Steelseries Headphones
+        li.c-wishlist-item
+          | 👔
+          a.o-link(href="https://store.uprightpose.com/products/upright-go2-v2" target="_blank")
+            | UPRIGHT GO Posture Corrector

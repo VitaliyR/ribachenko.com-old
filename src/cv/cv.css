@@ -1,5 +1,5 @@
-@import './layout.css';
-@import './components.css';
+@import 'layout.css';
+@import 'components.css';
 
 :root {
   --color-base: #000;

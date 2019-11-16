@@ -115,13 +115,14 @@ module.exports.css = function css() {
   const jobs = [].concat(...links.map(res => buildConfigs.map(buildConfig => new Promise((resolve, reject) => {
     const fileName = buildConfig.name(res.name);
     const entryFile = file.vinyl(fileName, './', res.files.map(f => `@import './${f}';`).join('\n'));
+    const dist = path.join(opts.dist, path.dirname(res.name));
 
     return entryFile
       .pipe(sourcemaps.init())
       .pipe(gulpPostcss(buildConfig.plugins))
       .on('error', reject)
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(opts.dist))
+      .pipe(gulp.dest(dist))
       .on('end', resolve);
   }))));
 

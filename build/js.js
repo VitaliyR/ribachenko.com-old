@@ -21,7 +21,7 @@ const buildConfigs = [
         }]
       ]
     },
-    name: name => path.basename(name)
+    name: name => path.join(path.dirname(name), path.basename(name)).slice(1)
   },
   {
     babel: {
@@ -36,7 +36,7 @@ const buildConfigs = [
       ],
       plugins: []
     },
-    name: name => `${path.basename(name, path.extname(name))}.old.js`,
+    name: name => `${path.join(path.dirname(name), path.basename(name, path.extname(name))).slice(1)}.old.js`,
     requires: [
       'custom-event-polyfill'
     ]
