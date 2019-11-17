@@ -1,7 +1,13 @@
 .c-wishlist-item {
   margin: 10px 0;
+  display: flex;
+  flex-flow: row nowrap;
 
   &:first-child {
     margin-top: 0;
+  }
+
+  &--icon {
+    margin-right: 10px;
   }
 }
