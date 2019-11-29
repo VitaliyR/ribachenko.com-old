@@ -15,6 +15,61 @@ append styles
 
 block content
   include ../components/section/section
+  -
+    const wishes = [
+    {
+      title: 'Etc',
+      items: [
+        {
+          icon: '💳',
+          link: 'https://send.monobank.com.ua/2BgRGaJ9q?f',
+          text: 'Send me money from any card'
+        },
+        {
+          icon: '🪑',
+          link: 'https://www.3ona51.com/ru/gaming-chairs/dxracer-oh-is166-nw/index.html',
+          text: 'DXRacer Chair',
+          done: 'Presented'
+        }
+      ],
+    },
+    {
+      title: 'Car',
+      items: [
+        {
+          icon: '📹',
+          link: 'https://rozetka.com.ua/xiaomi_yi_smart_dash_gray/p11283724/',
+          text: 'DVR',
+          done: 'Presented'
+        }
+      ]
+    },
+    {
+      title: 'Tech',
+      items: [
+        {
+          icon: '🖱',
+          link: 'https://www.3ona51.com/ru/gaming-mouses/steelseries-sensei-ten-62527/index.html',
+          text: 'Steelseries Ten'
+        },
+        {
+          icon: '🎧',
+          link: 'https://www.3ona51.com/ru/gaming-headphones/steelseries-arctis-3-bluetooth-2019-edition-61509/index.html',
+          text: 'Steelseries Headphones'
+        },
+        {
+          icon: '👔',
+          link: 'https://store.uprightpose.com/products/upright-go2-v2',
+          text: 'UPRIGHT GO Posture Corrector'
+        },
+        {
+          icon: '💻',
+          link: 'https://ilounge.ua/products/podstavka-twelve-south-hirise-macbook-kupit',
+          text: 'Twelve South HiRise Macbook Stand'
+        }
+      ]
+    }
+    ];
 
   main.l-post-container
     +section
@@ -26,39 +81,12 @@ block content
       p.c-section__content
 
     +section
-      h2.o-header Etc
-      ul.o-list--no-list
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 💳
-          div
-            a.o-link(href="https://send.monobank.com.ua/2BgRGaJ9q?f" target="_blank") Send me money from any card
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 🪑
-          div
-            a.o-link(href="https://www.3ona51.com/ru/gaming-chairs/dxracer-oh-is166-nw/index.html" target="_blank")
-              | DXRacer Chair
-
-      h2.o-header Car
-      ul.o-list--no-list
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 📹
-          div
-            a.o-link(href="https://rozetka.com.ua/xiaomi_yi_smart_dash_gray/p11283724/" target="_blank") DVR
-
-      h2.o-header Tech
-      ul.o-list--no-list
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 🖱
-          div
-            a.o-link(href="https://www.3ona51.com/ru/gaming-mouses/steelseries-sensei-ten-62527/index.html" target="_blank")
-              | Steelseries Ten
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 🎧
-          div
-            a.o-link(href="https://www.3ona51.com/ru/gaming-headphones/steelseries-arctis-3-bluetooth-2019-edition-61509/index.html" target="_blank")
-              | Steelseries Headphones
-        li.c-wishlist-item
-          span.c-wishlist-item--icon 👔
-          div
-            a.o-link(href="https://store.uprightpose.com/products/upright-go2-v2" target="_blank")
-              | UPRIGHT GO Posture Corrector
+      each section in wishes
+        h2.o-header= section.title
+        ul.o-list--no-list
+          each item in section.items
+            li.c-wishlist-item(class={'c-wishlist-item__done': item.done})
+              span.c-wishlist-item--icon= item.icon
+              div.c-wishlist-item--text
+                - const text = item.text + (item.done ? ` (${item.done})` : '');
+                a.o-link(href=item.link target="_blank")= text

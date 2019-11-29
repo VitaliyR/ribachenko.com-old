@@ -3,6 +3,12 @@
   display: flex;
   flex-flow: row nowrap;
 
+  &__done {
+   .c-wishlist-item--text {
+     text-decoration: line-through;
+   }
+  }
+
   &:first-child {
     margin-top: 0;
   }
