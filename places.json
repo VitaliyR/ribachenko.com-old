@@ -6,12 +6,19 @@
     "country": "Ukraine"
   },
   "current": {
-    "lat": 49.233243,
-    "lng": 28.470120,
-    "city": "Vinnitsya",
-    "country": "Ukraine"
+    "lat": "32.052670",
+    "lng": "34.756711",
+    "city": "Tel Aviv",
+    "country": "Israel"
   },
   "visited": [
+    {
+      "lat": "32.052670",
+      "lng": "34.756711",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "dates": ["December 2019"]
+    },
     {
       "lat": "48.469068",
       "lng": "35.050838",
