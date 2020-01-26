@@ -17,7 +17,7 @@ const options = {
   templateResources: {},
   pdf: [
     {
-      url: 'https://ribachenko.com/cv.html',
+      url: 'https://ribachenko.com/cv/',
       file: 'cv.pdf'
     }
   ]
