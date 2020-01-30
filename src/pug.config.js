@@ -108,7 +108,7 @@ module.exports = (posts, places) => ({
         description: 'Taxi ordering service in Ukraine. Available for iOS and Android, '
           + 'and also there are separate apps for drivers',
         image: '/res/projects/sprut.png',
-        href: 'http://sprut.mobi'
+        href: 'https://sprut.ua'
       },
       {
         title: 'Open source contributions',
