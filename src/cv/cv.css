@@ -76,7 +76,7 @@ html {
 
   @media screen and (--big-phone) {
     background: white;
-    padding: 10px;
+    padding: 5px;
     width: 44px;
     height: 44px;
     left: 0;
