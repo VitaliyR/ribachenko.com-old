@@ -38,52 +38,52 @@ module.exports = (posts, places) => ({
     ],
     contacts: [
       {
-        name: 'email',
+        name: 'email-stroke',
         url: 'mailto:vit@ribachenko.com',
         text: 'vit@ribachenko.com'
       },
       {
-        name: 'home',
+        name: 'home-stroke',
         url: `https://www.google.com/maps/search/?api=1&query=${places.home.lat},${places.home.lng}`,
         text: `${places.home.city}, ${places.home.country}`
       },
       {
-        name: 'pin',
+        name: 'pin-stroke',
         url: `https://www.google.com/maps/search/?api=1&query=${places.current.lat},${places.current.lng}`,
         text: `${places.current.city}, ${places.current.country}`
       },
       {
-        name: 'phone',
+        name: 'phone-stroke',
         url: 'tel:+380632886003',
         text: '+380 63 288 6003'
       },
       {
-        name: 'telegram',
+        name: 'telegram-stroke',
         url: 'https://telegram.me/salen',
         text: 'salen'
       },
       {
-        name: 'skype',
+        name: 'skype-stroke',
         url: 'skype:salen08',
         text: 'salen08'
       },
       {
-        name: 'github',
+        name: 'github-stroke',
         url: 'https://github.com/vitaliyr',
         text: 'github.com/VitaliyR'
       },
       {
-        name: 'linkedin',
+        name: 'linkedin-stroke',
         url: 'https://www.linkedin.com/in/vitaliy-ribachenko',
         text: 'salen.dev/linkedin'
       },
       {
-        name: 'globe',
+        name: 'globe-stroke',
         url: 'https://ribachenko.com',
         text: 'ribachenko.com'
       },
       {
-        name: 'globe',
+        name: 'globe-stroke',
         url: 'https://salen.dev',
         text: 'salen.dev'
       }
