@@ -1,3 +1,18 @@
+---
+title: Use OS X Picture in Picture mode everywhere
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2017-05-18T12:36:00.000+00:00
+updated_at: 2017-05-18T12:36:00.000+00:00
+tags:
+  - name: Programming
+    slug: programming
+  - name: OS X
+    slug: osx
+  - name: Blog
+    slug: blog
+---
 OS X El Capitan brought yet another feature from iOS to desktop operation system called **Picture in Picture**. This thing
 allows you to run movie in a separate overlay window, which is always on top. The user can resize and move it around, toggle
 play/pause state of the video, and, of course, close it. I found it really useful for watching & listening some interesting

@@ -1,3 +1,16 @@
+---
+title: PhpStorm speedup
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2016-09-29T10:11:00.000+00:00
+updated_at: 2016-09-29T10:11:00.000+00:00
+tags:
+- name: IT
+  slug: it
+- name: Editors
+  slug: editors
+---
 Choosing an editor is not that easy stuff. I've tried various of them and fall in love with PhpStorm. It has all I need and even more - 
 IntelliSense, built-in nodejs debugger, FTP client, terminal etc. But it is an IDE - so that means lags can appear from time to time. The
 startup time is too long, you need to restart it to free the memory and it seems I can be faster than my editor.

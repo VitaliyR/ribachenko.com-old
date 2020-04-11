@@ -1,3 +1,14 @@
+---
+title: Sunday is another good day to fix the Xcode
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2017-02-19T12:36:48.000+00:00
+updated_at: 2017-02-19T12:36:48.000+00:00
+tags:
+  - name: Thoughts
+    slug: thoughts
+---
 Developing for Mac and iOS isn't my primary profile, but every time I open Xcode IDE, it brings me another bunch of bugs. This time I have got tired because of the bug with Storyboard,where *Connections inspector* missing **Sent Events** section for `UITextField` or `UIButton`.
 
 ![Screenshot of XCode storyboard pane with outlets for UIButton](./res/1.png)

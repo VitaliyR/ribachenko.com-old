@@ -1,3 +1,14 @@
+---
+title: Wind of change in piracy, yet again
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2016-12-29T07:56:00.000+00:00
+updated_at: 2016-12-29T07:56:00.000+00:00
+tags:
+  - name: Thoughts
+    slug: thoughts
+---
 In short - a little more than a month ago our so-called cyber-police shut downed one of the biggest service providing the largest catalog of 
 movies - **FS.to**. By the way, I developed a bot for Telegram for it - of course, it doesn't work right now. This service was providing illegal 
 content, which is bad, but the main thing is that we don't have anything legal in Ukraine with the same database of films. We have only 

@@ -209,9 +209,7 @@ const reloadPugConfig = async () => {
 
   const pugConfig = pugConfigFactory(posts, places);
 
-  pugConfig.locals.relative = (src, templatePath) => {
-    return resolve(src, path.dirname(templatePath))
-  };
+  pugConfig.locals.relative = (src, templatePath) => resolve(src, path.dirname(templatePath));
   pugConfig.locals.basename = src => path.dirname(src) + path.sep + path.basename(src, path.extname(src));
   pugConfig.locals.extname = path.extname;
 

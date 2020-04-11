@@ -1,0 +1,48 @@
+models:
+  post:
+    type: page
+    label: Post
+    layout: todo
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: Title of the post
+      - type: image
+        name: image
+        label: Image
+        description: Post main image
+      - type: boolean
+        name: featured
+        label: Featured
+        description: Is featured post
+      - type: boolean
+        name: published
+        label: Published
+        description: If post is visible for others on the site
+      - type: date
+        name: published_at
+        label: Published at
+        description: Date of publishing
+      - type: date
+        name: updated_at
+        label: Updated at
+        description: Date of update
+      - type: list
+        name: tags
+        label: Tags
+        description: Post tags
+        items:
+          type: tag
+  tag:
+    type: object
+    label: Post Tag
+    fields:
+      - type: string
+        name: name
+        label: Name
+        description: Tag name
+      - type: slug
+        name: slug
+        label: Slug
+        description: Tag slug

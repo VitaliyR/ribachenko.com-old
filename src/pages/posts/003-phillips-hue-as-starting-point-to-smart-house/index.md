@@ -1,3 +1,14 @@
+---
+title: Phillips Hue as starting point to Smart House
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2016-09-25T09:48:00.000+00:00
+updated_at: 2016-09-25T09:48:00.000+00:00
+tags:
+    - name: Home
+      slug: home
+---
 My bedroom was always located on a sunny side of the house and I used to wake up rested even if I had slept only a few hours. This built-in 
 natural alarm is doing the job - when the sun is rising you automatically wake up. But, almost a year ago, I moved to new flat, where the bedroom 
 located wrong, and no matter how much I'm sleeping - every morning is a hard labor for me.

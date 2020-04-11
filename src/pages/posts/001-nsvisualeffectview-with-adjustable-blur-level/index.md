@@ -1,3 +1,19 @@
+---
+title: NSVisualEffectView with adjustable blur level
+image: ./res/featured.jpg
+featured: false
+published: true
+published_at: 2016-02-17T08:40:00.000+00:00
+updated_at: 2016-02-17T08:40:00.000+00:00
+tags:
+    - name: IT
+      slug: IT
+    - name: Programming
+      slug: programming
+    - name: Swift
+      slug: swift
+---
+
 With a release of OS X Yosemite Apple introduced few new components in their SDK, one of them is called **NSVisualEffectView**, which brings opportunity to 
 create semitransparent backgrounds for components.
 

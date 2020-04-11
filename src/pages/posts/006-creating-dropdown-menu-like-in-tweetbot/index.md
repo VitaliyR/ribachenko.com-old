@@ -1,3 +1,18 @@
+---
+title: Creating dropdown menu like in Tweetbot
+image: ./res/featured.png
+featured: false
+published: true
+published_at: 2017-02-16T06:00:00.000+00:00
+updated_at: 2017-02-16T06:00:00.000+00:00
+tags:
+  - name: Swift
+    slug: swift
+  - name: Programming
+    slug: programming
+  - name: iOS
+    slug: ios
+---
 While developing my subproject, I had faced a problem creating a view with buttons, which appears like dropdown when the user taps on 
 table view's cell. Seeking the best way how to do it, I googled a lot, read many posts from StackOverflow and all that suggestions were 
 really shitty, as for me. So, as usually, I decided to create yet another own bicycle :)

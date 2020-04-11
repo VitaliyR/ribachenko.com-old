@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const glob = require('fast-glob');
 const posthtml = require('posthtml');
+const yaml = require('js-yaml');
 const path = require('path');
 const fs = require('fs-fs');
 const dayjs = require('dayjs');
@@ -116,14 +117,15 @@ const processPostHtml = (tree) => {
   });
 };
 
-const parseMeta = async (metaFilePath) => {
-  const dirname = path.dirname(metaFilePath);
-  const metaFile = await fs.readFile(metaFilePath, 'utf-8');
-  const metaJson = JSON.parse(metaFile);
+const parseMeta = async ({ frontmatter: metaJson, filePath, markdown }) => {
+  const dirname = path.dirname(filePath);
 
   if (!metaJson.published) {
     return null;
   }
+
+  const slug = path.dirname(path.relative(opts.posts, filePath)).replace(/^\d{3}-/, '');
+  metaJson.slug = slug;
 
   const publishedDate = dayjs(metaJson.published_at);
 
@@ -131,11 +133,10 @@ const parseMeta = async (metaFilePath) => {
   metaJson.published_at_formatted = publishedDate.format('DD MMM YY');
   metaJson.published_at_formatted_long = publishedDate.format('DD MMMM YYYY');
 
-  const postFilePath = path.join(dirname, 'post.md');
   let htmlContent = '';
   let textContent = '';
   try {
-    htmlContent = marked(await fs.readFile(postFilePath, 'utf-8'));
+    htmlContent = marked(markdown);
     htmlContent = await posthtml()
       .use(processPostHtml)
       .process(htmlContent)
@@ -154,7 +155,8 @@ const parseMeta = async (metaFilePath) => {
     : `${textContent.substr(0, maxDescriptionLength).replace(/\n/g, ' ').trim()}...`;
 
   metaJson.html = htmlContent;
-  metaJson.href = path.join('/', opts.posts, metaJson.slug, '/');
+  metaJson.href = path.join('/', opts.postsDest, slug, '/');
+
   if (metaJson.image) {
     const imagePath = path.join(metaJson.href, metaJson.image);
     const imageExt = path.extname(imagePath);
@@ -167,7 +169,7 @@ const parseMeta = async (metaFilePath) => {
   const resDirExists = await fs.exists(resDirPath);
 
   if (resDirExists) {
-    const distResPath = path.join(opts.dist, opts.posts, metaJson.slug, 'res');
+    const distResPath = path.join(opts.dist, opts.postsDest, slug, 'res');
 
     await new Promise((res) => {
       const stream = gulp.src(path.join(resDirPath, '**'))
@@ -190,6 +192,35 @@ const parseMeta = async (metaFilePath) => {
   return metaJson;
 };
 
+const parseMarkdownWithFrontmatter = async (filePath) => {
+  let string = await fs.readFile(filePath, 'utf-8');
+
+  string = string.replace('\r\n', '\n');
+
+  let frontmatter = null;
+  let markdown = string;
+  const frontmatterType = {
+    type: 'yaml',
+    startDelimiter: '---\n',
+    endDelimiter: '\n---',
+    parse: str => yaml.safeLoad(str, { schema: yaml.JSON_SCHEMA })
+  };
+  const index = string.indexOf(frontmatterType.endDelimiter);
+  if (index !== -1) {
+    const endDelimEndIndex = index + frontmatterType.endDelimiter.length;
+    const afterEndDelim = string.substring(endDelimEndIndex);
+    const afterEndDelimMatch = afterEndDelim.match(/^\s*?(\n|$)/);
+
+    if (afterEndDelimMatch) {
+      const data = string.substring(frontmatterType.startDelimiter.length, index);
+      frontmatter = frontmatterType.parse(data);
+      markdown = afterEndDelim.substring(afterEndDelimMatch[0].length);
+    }
+  }
+
+  return { frontmatter, markdown, filePath };
+};
+
 /**
  * Exports
  */
@@ -202,10 +233,12 @@ module.exports.posts = async function posts() {
     await fs.mkdir(path.join(opts.dist, opts.postDir));
   } catch (e) {} // eslint-disable-line no-empty
 
-  const metaFiles = await glob(path.join(opts.posts, '**/meta.json'));
-  const parsedMetas = (await Promise.all(metaFiles.map(parseMeta)))
+  const postsFilesPaths = await glob(path.join(opts.posts, '**/index.md'));
+  const postsFiles = (await Promise.all(
+    postsFilesPaths.map(filePath => parseMarkdownWithFrontmatter(filePath).then(parseMeta))
+  ))
     .filter(meta => meta)
     .sort((a, b) => b.id - a.id);
 
-  return fs.writeFile(path.join(opts.dist, 'posts.json'), JSON.stringify(parsedMetas));
+  return fs.writeFile(path.join(opts.dist, 'posts.json'), JSON.stringify(postsFiles));
 };
