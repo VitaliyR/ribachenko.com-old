@@ -19,7 +19,7 @@
   }
 
   &--print-url {
-    @media print {
+    @media (print) {
       font-weight: 500;
       border-bottom: 0;
 

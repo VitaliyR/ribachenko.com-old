@@ -2,7 +2,7 @@
   width: 24px;
   height: 24px;
 
-  @media print {
+  @media (print) {
     display: none;
   }
 }
