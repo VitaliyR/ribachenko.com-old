@@ -1,13 +1,23 @@
 models:
-  post:
+  page:
     type: page
-    label: Post
+    label: Page
     layout: todo
     fields:
       - type: string
         name: title
         label: Title
-        description: Title of the post
+      - type: string
+        name: description
+        label: Description
+      - type: markdown
+        name: content
+        label: Content
+  post:
+    type: page
+    label: Post
+    layout: todo
+    fields:
       - type: image
         name: image
         label: Image
@@ -46,3 +56,42 @@ models:
         name: slug
         label: Slug
         description: Tag slug
+  wishlist:
+    type: page
+    label: Wishlist Page
+    fields:
+      - type: list
+        name: wishes
+        label: Wishes
+        items:
+          - type: object
+            name: wishgroup
+            label: Wish Group
+            fields:
+              - type: string
+                name: title
+                label: Title
+              - type: list
+                name: wishes
+                label: Wishes
+                items:
+                  - type: object
+                    name: wish
+                    label: Wish
+                    fields:
+                      - type: string
+                        name: icon
+                        label: Icon
+                      - type: string
+                        name: link
+                        label: link
+                      - type: string
+                        name: text
+                        label: Text
+                      - type: enum
+                        name: done
+                        label: Is done
+                        options:
+                          - ""
+                          - Presented
+                          - Purchased
