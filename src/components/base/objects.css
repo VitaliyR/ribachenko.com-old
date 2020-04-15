@@ -20,6 +20,7 @@
 
   &--print-url {
     @media print {
+      font-weight: 500;
       border-bottom: 0;
 
       &::after {

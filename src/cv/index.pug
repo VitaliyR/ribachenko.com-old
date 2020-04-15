@@ -76,7 +76,7 @@ block body
                 li.c-cv-social-item
                   a.o-link.o-link--plain.o-link--ic.c-cv-social-item__link(href=contact.url target=(contact.url.startsWith('http') ? "_blank" : "") rel="noreferrer noopener")
                     svg.c-cv-social-item__icon(src="/res/icons/" + contact.name.toLowerCase() + ".svg")
-                    span= contact.text
+                    span.c-cv-social-item__link-text= contact.text
 
         section.l-cv-columns.l-cv-section
           div

@@ -10,7 +10,11 @@
   &__subtitle {
     margin: 0;
     font-size: 1.5rem;
-    font-weight: normal;
+    font-weight: 300;
+
+    @media print {
+      font-weight: 500;
+    }
   }
 
   &__description {
@@ -37,6 +41,12 @@
 
   &__link {
     display: block;
+
+    &-text {
+       @media print {
+         font-weight: 500;
+       }
+     }
   }
 
   &__icon {
