@@ -9,7 +9,7 @@
   margin: 0;
 }
 
-@media (print) {
+@media print {
   #__bs_notify__ {
     display: none !important;
   }
@@ -18,7 +18,7 @@
 html {
   font-size: 16px;
 
-  @media (print) {
+  @media print {
     font-size: 14px;
   }
 }
@@ -70,7 +70,7 @@ html {
     background: transparent;
   }
 
-  @media (print) {
+  @media print {
     display: none;
   }
 
