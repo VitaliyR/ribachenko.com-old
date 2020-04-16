@@ -13,7 +13,7 @@
     font-weight: 300;
 
     @media print {
-      font-weight: 500;
+      color: var(--color-accent-dark);
     }
   }
 
@@ -44,7 +44,8 @@
 
     &-text {
        @media print {
-         font-weight: 500;
+         color: var(--color-accent-dark);
+         font-weight: 300;
        }
      }
   }

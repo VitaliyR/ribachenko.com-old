@@ -20,8 +20,9 @@
 
   &--print-url {
     @media print {
-      font-weight: 500;
+      font-weight: 300;
       border-bottom: 0;
+      color: var(--color-accent-dark);
 
       &::after {
         content: ' (' attr(href) ')';
