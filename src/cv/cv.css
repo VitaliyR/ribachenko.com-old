@@ -55,6 +55,10 @@ html {
   @media screen and (--big-phone) {
     margin-top: 1.5rem;
   }
+
+  @media print {
+    color: var(--color-accent-dark);
+  }
 }
 
 .o-switch--day-night {

@@ -1,20 +1,24 @@
 .c-cv-header {
   border-bottom: 3px solid var(--color-accent);
 
+  @media print {
+    border-bottom-color: var(--color-accent-dark);
+  }
+
   &__title,
   &__subtitle {
     color: var(--color-accent);
     margin: 0;
+
+    @media print {
+      color: var(--color-accent-dark);
+    }
   }
 
   &__subtitle {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 300;
-
-    @media print {
-      color: var(--color-accent-dark);
-    }
   }
 
   &__description {
@@ -32,6 +36,7 @@
       width: 120px;
       height: 120px;
       border-radius: 60px;
+      border-color: var(--color-accent-dark);
     }
   }
 }
