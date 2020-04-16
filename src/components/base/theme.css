@@ -6,8 +6,8 @@
   --color-mid-tint: #cfcfcf;
   --color-tint: #ebf2f6;
   --color-accent: #0092bf;
-  --color-accent-light: rgb(0, 146, 191, .5);
-  --color-accent-dark: #00799c;
+  --color-accent-light: rgba(0, 146, 191, 0.5);
+  --color-accent-dark: #00627d;
 }
 
 :root.scheme-dark {
