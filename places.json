@@ -6,10 +6,10 @@
     "country": "Ukraine"
   },
   "current": {
-    "lat": 49.233243,
-    "lng": 28.470120,
-    "city": "Vinnitsya",
-    "country": "Ukraine"
+      "lat": 50.452871,
+      "lng": 30.522691,
+      "city": "Kyiv",
+      "country": "Ukraine"
   },
   "visited": [
     {
@@ -80,14 +80,14 @@
       "lng": 30.522691,
       "city": "Kyiv",
       "country": "Ukraine",
-      "dates": ["March 2012", "March 2015", "April 2015", "March 2018", "June 2018"]
+      "dates": ["March 2012", "March 2015", "April 2015", "March 2018", "June 2018", "September 2020 - February 2021"]
     },
     {
       "lat": 49.843609,
       "lng": 24.026337,
       "city": "Lviv",
       "country": "Ukraine",
-      "dates": ["October 2010", "September 2011", "February 2012", "May 2015", "February 2017", "May 2018", "August 2018 - November 2018"]
+      "dates": ["October 2010", "September 2011", "February 2012", "May 2015", "February 2017", "May 2018", "August 2018 - November 2018", "August 2020"]
     },
     {
       "lat": 46.466272,
@@ -157,7 +157,7 @@
       "lng": 31.067591,
       "city": "Belek",
       "country": "Turkey",
-      "dates": ["September 2019"]
+      "dates": ["September 2019", "August 2020"]
     }
   ]
 }
