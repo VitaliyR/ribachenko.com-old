@@ -12,6 +12,9 @@
     font-size: 0;
     justify-content: center;
     margin-bottom: 1rem;
+    min-height: 170px;
+    display: flex;
+    flex-flow: column;
 
     &::before {
       content: '';

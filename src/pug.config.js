@@ -104,6 +104,14 @@ module.exports = (posts, places) => ({
     ],
     projects: [
       {
+        title: 'Stackbit',
+        description: 'Easiest way to create your own site with the best tools is Stackbit - first open, '
+          + 'complete platform for the Jamstack',
+        image: '/res/projects/stackbit.png',
+        imageDark: '/res/projects/stackbit-dark.png',
+        href: 'https://stackbit.com'
+      },
+      {
         title: 'Sprut',
         description: 'Taxi ordering service in Ukraine. Available for iOS and Android, '
           + 'and also there are separate apps for drivers',
