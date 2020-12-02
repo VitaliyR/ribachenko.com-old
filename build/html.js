@@ -20,7 +20,6 @@ const spriteClass = 'o-svg-sprite';
 const svgo = new Svgo({
   plugins: [
     { removeUselessDefs: false },
-    { removeUnknownsAndDefaults: false },
     { cleanupIDs: false }
   ]
 });
