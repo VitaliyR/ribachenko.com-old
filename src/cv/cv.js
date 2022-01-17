@@ -5,8 +5,10 @@ let printIframe;
 
 const printPdf = () => {
   try {
-    printIframe.focus();
-    printIframe.contentWindow.print();
+    setTimeout(() => {
+      printIframe.focus();
+      printIframe.contentWindow.print();
+    }, 1);
   } catch (e) {
     window.open(pdfLink, '_blank');
   }
