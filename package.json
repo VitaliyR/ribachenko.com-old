@@ -52,7 +52,7 @@
     "marked": "^0.7.0",
     "match-all": "^1.2.5",
     "merge-stream": "^1.0.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "postcss": "^7.0.14",
     "postcss-custom-media": "^7.0.8",
     "postcss-custom-properties": "^8.0.10",
