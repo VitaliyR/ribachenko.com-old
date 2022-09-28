@@ -1,4 +1,3 @@
 # ribachenko.com
 
-My personal website with my contacts, info about me and some various posts:
-[ribachenko.com](https://ribachenko.com). Also available at [salen.dev](https://salen.dev)
+Previous version. New is available at [other repo](https://github.com/VitaliyR/ribachenko.com).
